@@ -1,6 +1,12 @@
 const express = require('express');
+const cors = require('cors');
+const corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200
+  };
 
 class Server {
+    
   constructor() {
     this.app = express();
     // Puerto expuesto
@@ -14,6 +20,8 @@ class Server {
   }
 
   middlewares() {
+    // CORS
+    this.app.use(cors(corsOptions));
     // directorio publico
     this.app.use(express.static('public'));
   }
