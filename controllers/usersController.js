@@ -1,14 +1,18 @@
-const { response } = require('express');
+const { request, response } = require('express');
 
 const usersGet = (req, res = response) => {
-    res.status(200).json({
+    res.json({
     msg: 'get API - Controller'
   });
 }
 
-const usersPut = (req, res = response) => {
-    res.status(200).json({
-    msg: 'put API - Controller'
+const usersPut = (req = request, res = response) => {
+    // Recibiendo el parametro 'id' de la ruta y utilizarlo
+    const id = req.params.id;
+
+    res.json({
+    msg: 'put API - Controller',
+    id
   });
 }
 
@@ -17,7 +21,7 @@ const usersPost = (req, res = response) => {
     // Desesctruturndo el body
     const { nombre, edad } = req.body;
 
-    res.status(200).json({
+    res.json({
       msg: 'post API - Controller',
     //   body
     nombre,
@@ -26,7 +30,7 @@ const usersPost = (req, res = response) => {
   }
 
 const usersDelete = (req, res = response) => {
-    res.status(200).json({
+    res.json({
     msg: 'delete API - Controller'
   });
 }
