@@ -27,7 +27,7 @@ class Server {
   }
 
   routes() {
-    this.app.use(this.routeUsersPath, require('../routes/user'));
+    this.app.use(this.routeUsersPath, require('../routes/userRoute'));
   }
 
   listener() {
