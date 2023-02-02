@@ -8,6 +8,9 @@ class Server {
     // Puerto expuesto
     this.port = process.env.PORT;
 
+    // Rutas API
+    this.routeUsersPath = '/api/usuarios';
+
 
     // Middleware
     this.middlewares();
@@ -24,7 +27,7 @@ class Server {
   }
 
   routes() {
-    this.app.use('/api/usuarios', require('../routes/user'));
+    this.app.use(this.routeUsersPath, require('../routes/user'));
   }
 
   listener() {
