@@ -1,13 +1,22 @@
 const { request, response } = require('express');
 
-const usersGet = (req, res = response) => {
+const usersGet = (req = request, res = response) => {
+    // const query = req.query
+    // Desesctruturando el query
+    const { id, nombre,apellido = 'No Present', edad } = req.query;
+
     res.json({
-    msg: 'get API - Controller'
+    msg: 'get API - Controller',
+    // query
+    id,
+    nombre,
+    apellido,
+    edad
   });
 }
 
 const usersPut = (req = request, res = response) => {
-    // Recibiendo el parametro 'id' de la ruta y utilizarlo
+    // Recibiendo el parametro 'id' de la ruta y utilizandolo
     const id = req.params.id;
 
     res.json({
@@ -18,7 +27,7 @@ const usersPut = (req = request, res = response) => {
 
 const usersPost = (req, res = response) => {
     // const body = req.body;
-    // Desesctruturndo el body
+    // Desesctruturando el body
     const { nombre, edad } = req.body;
 
     res.json({
