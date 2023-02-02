@@ -13,8 +13,15 @@ const usersPut = (req, res = response) => {
 }
 
 const usersPost = (req, res = response) => {
+    // const body = req.body;
+    // Desesctruturndo el body
+    const { nombre, edad } = req.body;
+
     res.status(200).json({
-      msg: 'post API - Controller'
+      msg: 'post API - Controller',
+    //   body
+    nombre,
+    edad
     });
   }
 
