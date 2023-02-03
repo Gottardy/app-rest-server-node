@@ -5,6 +5,7 @@ class Server {
     
   constructor() {
     this.app = express();
+    
     // Puerto expuesto
     this.port = process.env.PORT;
 
@@ -30,6 +31,7 @@ class Server {
     this.app.use(express.static('public'));
   }
 
+  // Manejador de rutas
   routes() {
     this.app.use(this.routeUsersPath, require('../routes/userRoute'));
   }
